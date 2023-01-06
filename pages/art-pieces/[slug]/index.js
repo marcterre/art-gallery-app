@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 import { useContext } from "react";
-import { myDataContext } from "../_app";
-import Head from "next/head";
-import Image from "next/image";
+import { myDataContext } from "../../_app";
+import ArtPieceDetails from "../../../components/ArtPieceDetails";
 
 export default function Piece() {
   const globalData = useContext(myDataContext);
@@ -12,6 +11,10 @@ export default function Piece() {
 
   const currentPiece = globalData.find((piece) => piece.slug === slug);
 
+  if (slug === "art-pieces") {
+    () => router.back();
+  }
+
   if (!currentPiece) {
     return <h1>404</h1>;
   }
@@ -19,17 +22,12 @@ export default function Piece() {
   const { artist, name, imageSource, year, genre } = currentPiece;
 
   return (
-    <>
-      <Head>
-        <title>{name}</title>
-      </Head>
-      <h1>
-        {name}
-        <small>{year}</small>
-      </h1>
-      <h2>{genre}</h2>
-      <Image src={imageSource} alt={name} width={300} height={300}></Image>
-      <p>{artist}</p>
-    </>
+    <ArtPieceDetails
+      name={name}
+      artist={artist}
+      image={imageSource}
+      year={year}
+      genre={genre}
+    />
   );
 }
