@@ -13,6 +13,15 @@ const nextConfig = {
 
     return config;
   },
+  // resolve error with scr
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "example-apis.vercel.app",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
