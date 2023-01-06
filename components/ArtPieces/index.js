@@ -1,14 +1,13 @@
-import { useImmer } from "use-immer";
 import ArtPiecePreview from "../ArtPiecePreview/index";
+import { useContext } from "react";
+import { myDataContext } from "../../pages/_app";
 
-export default function ArtPieces({ pieces }) {
-  // const [artList, setArtList] = useImmer(pieces);
-
-  console.log(pieces);
+export default function ArtPieces() {
+  const globalData = useContext(myDataContext);
 
   return (
     <ul>
-      {pieces.map((piece) => (
+      {globalData.map((piece) => (
         <li key={piece.slug}>
           <ArtPiecePreview
             image={piece.imageSource}

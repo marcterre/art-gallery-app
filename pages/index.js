@@ -1,24 +1,17 @@
-import useSWR from "swr";
 import ArtPieces from "../components/ArtPieces";
+import Spotlight from "../components/Spotlight/Spotlight";
+import { useContext } from "react";
 
-const URL = "https://example-apis.vercel.app/api/art";
+import { myDataContext } from "./_app";
 
-export default function HomePage() {
-  const { data, error, isLoading } = useSWR(URL);
-
-  console.log(`HomePage: ${data}`);
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (error) {
-    return <h1>{"ERROR: " + error.message}</h1>;
-  }
+export default function SpotlightPage() {
+  const globalData = useContext(myDataContext);
+  console.log(globalData);
 
   return (
     <div>
-      <ArtPieces pieces={data} />
+      <Spotlight />
+      {/* <ArtPieces /> */}
     </div>
   );
 }
