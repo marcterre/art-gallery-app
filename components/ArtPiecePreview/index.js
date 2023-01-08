@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FavoriteButton from "../FavoriteButton";
 
 export default function ArtPiecePreview({ image, title, artist }) {
   return (
@@ -6,6 +7,7 @@ export default function ArtPiecePreview({ image, title, artist }) {
       <h4>{title}</h4>
       <Image src={image} alt={title} width={150} height={150} priority />
       <p>{artist}</p>
+      <FavoriteButton />
     </>
   );
 }

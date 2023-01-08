@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import FavoriteButton from "../FavoriteButton";
 import { useRouter } from "next/router";
 
 export default function ArtPieceDetails({ image, name, artist, year, genre }) {
@@ -17,6 +18,7 @@ export default function ArtPieceDetails({ image, name, artist, year, genre }) {
       <h2>{genre}</h2>
       <Image src={image} alt={name} width={300} height={300}></Image>
       <p>{artist}</p>
+      <FavoriteButton />
       <button type="button" aria-label="Go Back" onClick={() => router.back()}>
         Return
       </button>

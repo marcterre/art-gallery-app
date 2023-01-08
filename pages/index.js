@@ -1,7 +1,7 @@
-import ArtPieces from "../components/ArtPieces";
 import Spotlight from "../components/Spotlight/Spotlight";
-import { useContext } from "react";
+import FavoriteButton from "../components/FavoriteButton";
 
+import { useContext, useState } from "react";
 import { myDataContext } from "./_app";
 
 export default function SpotlightPage() {
@@ -11,7 +11,7 @@ export default function SpotlightPage() {
   return (
     <div>
       <Spotlight />
-      {/* <ArtPieces /> */}
+      <FavoriteButton />
     </div>
   );
 }

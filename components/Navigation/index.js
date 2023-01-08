@@ -1,12 +1,14 @@
+import Link from "next/link";
+
 export default function Navigation() {
   return (
     <nav>
       <ul>
         <li>
-          <a href="./art-pieces">Artpieces</a>
+          <Link href="./art-pieces">Artpieces</Link>
         </li>
         <li>
-          <a href="./">Spotlight</a>
+          <Link href="./">Spotlight</Link>
         </li>
       </ul>
     </nav>
